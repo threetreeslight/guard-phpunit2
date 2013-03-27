@@ -1,5 +1,5 @@
 module Guard
-  module PHPUnit
+  module PHPUnit2
     VERSION = '0.2'
   end
 end

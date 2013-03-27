@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-# Specify your gem's dependencies in guard-phpunit.gemspec
+# Specify your gem's dependencies in guard-phpunit2.gemspec
 gemspec
 
 gem 'rake'

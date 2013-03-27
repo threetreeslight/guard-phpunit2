@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Guard::PHPUnit::Runner do
+describe Guard::PHPUnit2::Runner do
 
-  let(:formatter) { Guard::PHPUnit::Formatter }
-  let(:notifier)  { Guard::PHPUnit::Notifier  }
+  let(:formatter) { Guard::PHPUnit2::Formatter }
+  let(:notifier)  { Guard::PHPUnit2::Notifier  }
   let(:ui)        { Guard::UI                 }
 
   describe '#run' do
@@ -43,9 +43,8 @@ describe Guard::PHPUnit::Runner do
       end
 
       it 'runs phpunit tests' do
-        formatter_path = @project_path.join('lib', 'guard', 'phpunit', 'formatters', 'PHPUnit-Progress')
         subject.should_receive(:execute_command).with(
-          %r{^phpunit --include-path #{formatter_path} --printer PHPUnit_Extensions_Progress_ResultPrinter .+$}
+          %r{^phpunit .+$}
         ).and_return(true)
         subject.run( ['tests'] )
       end
@@ -128,7 +127,7 @@ describe Guard::PHPUnit::Runner do
           it 'runs with CLI options passed to PHPUnit' do
             cli_options = '--colors --verbose'
             subject.should_receive(:execute_command).with(
-              %r{^phpunit .+ #{cli_options} .+$}
+              %r{^phpunit #{cli_options} .+$}
             ).and_return(true)
             subject.run( ['tests'], :cli => cli_options )
           end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Guard::PHPUnit::Formatter do
+describe Guard::PHPUnit2::Formatter do
   describe '.parse_output' do
     context 'when all tests pass' do
       it 'returns a hash containing the tests result' do

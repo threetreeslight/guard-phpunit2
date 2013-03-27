@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Guard::PHPUnit::Notifier do
+describe Guard::PHPUnit2::Notifier do
 
   let(:guard_notifier) { Guard::Notifier }
 

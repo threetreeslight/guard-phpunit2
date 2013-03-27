@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Guard::PHPUnit do
+describe Guard::PHPUnit2 do
 
-  let(:runner)    { Guard::PHPUnit::Runner }
-  let(:inspector) { Guard::PHPUnit::Inspector }
-  let(:defaults)  { Guard::PHPUnit::DEFAULT_OPTIONS }
+  let(:runner)    { Guard::PHPUnit2::Runner }
+  let(:inspector) { Guard::PHPUnit2::Inspector }
+  let(:defaults)  { Guard::PHPUnit2::DEFAULT_OPTIONS }
 
   describe '#initialize' do
     context 'when no options are provided' do
@@ -27,7 +27,7 @@ describe Guard::PHPUnit do
 
     context 'when other options are provided' do
 
-      subject { Guard::PHPUnit.new(nil, { :all_on_start   => false,
+      subject { Guard::PHPUnit2.new(nil, { :all_on_start   => false,
                                           :all_after_pass => false,
                                           :keep_failed    => false,
                                           :cli            => '--colors',
@@ -69,7 +69,7 @@ describe Guard::PHPUnit do
     end
 
     context 'with the :all_on_start option set to false' do
-      subject { Guard::PHPUnit.new(nil, :all_on_start => false) }
+      subject { Guard::PHPUnit2.new(nil, :all_on_start => false) }
 
       it 'calls #run_all' do
         subject.should_not_receive(:run_all)
@@ -139,7 +139,7 @@ describe Guard::PHPUnit do
       end
 
       context 'with the :keep_failed option set to false' do
-        subject { Guard::PHPUnit.new(nil, :keep_failed => false) }
+        subject { Guard::PHPUnit2.new(nil, :keep_failed => false) }
 
         it 'runs the next changed files normally without the failed tests' do
           expect { subject.run_on_changes ['tests/firstTest.php'] }.to throw_symbol :task_has_failed
@@ -172,7 +172,7 @@ describe Guard::PHPUnit do
       end
 
       context 'with the :all_after_pass option set to false' do
-        subject { Guard::PHPUnit.new(nil, :all_after_pass => false) }
+        subject { Guard::PHPUnit2.new(nil, :all_after_pass => false) }
 
         it 'does not call #run_all' do
           subject.should_not_receive(:run_all)

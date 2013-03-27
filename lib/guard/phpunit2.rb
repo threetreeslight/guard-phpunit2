@@ -8,10 +8,10 @@ module Guard
   #
   class PHPUnit2 < Guard
 
-    autoload :Inspector, 'guard/phpunit/inspector'
-    autoload :Formatter, 'guard/phpunit/formatter'
-    autoload :Notifier,  'guard/phpunit/notifier'
-    autoload :Runner,    'guard/phpunit/runner'
+    autoload :Inspector, 'guard/phpunit2/inspector'
+    autoload :Formatter, 'guard/phpunit2/formatter'
+    autoload :Notifier,  'guard/phpunit2/notifier'
+    autoload :Runner,    'guard/phpunit2/runner'
 
     DEFAULT_OPTIONS = {
       :all_on_start   => true,

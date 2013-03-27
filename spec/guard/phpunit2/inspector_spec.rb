@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Guard::PHPUnit::Inspector do
+describe Guard::PHPUnit2::Inspector do
   before do
     subject.tests_path = 'spec/fixtures'
   end

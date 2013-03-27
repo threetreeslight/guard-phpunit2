@@ -1,5 +1,5 @@
 require 'rspec'
-require 'guard/phpunit'
+require 'guard/phpunit2'
 
 RSpec.configure do |config|
 
