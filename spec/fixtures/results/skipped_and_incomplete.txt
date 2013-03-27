@@ -1,4 +1,6 @@
 ISS
 
-Finished in 0 seconds
-3 tests, 0 assertions, 1 incomplete, 2 skipped
+Time: 0 seconds, Memory: 5.75Mb
+
+OK, but incomplete or skipped tests!
+Tests: 3, Assertions: 0, Incomplete: 1, Skipped: 2.

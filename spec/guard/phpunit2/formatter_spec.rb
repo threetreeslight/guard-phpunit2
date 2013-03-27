@@ -12,7 +12,7 @@ describe Guard::PHPUnit2::Formatter do
         }
       end
     end
-
+    
     context 'when all tests fail' do
       it 'returns a hash containing the tests result' do
         output = load_phpunit_output('failing')

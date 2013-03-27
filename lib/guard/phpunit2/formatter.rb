@@ -15,10 +15,10 @@ module Guard
         #
         def parse_output(text)
           results = {
-            :tests    => look_for_words_in('test',    text),
-            :failures => look_for_words_in('failure', text),
-            :errors   => look_for_words_in('error', text),
-            :pending  => look_for_words_in(['skipped', 'incomplete'], text),
+            :tests    => look_for_words_in('[Tests:|tests]',    text),
+            :failures => look_for_words_in('Failures:', text),
+            :errors   => look_for_words_in('Errors:', text),
+            :pending  => look_for_words_in(['Skipped:', 'Incomplete:'], text),
             :duration => look_for_duration_in(text)
           }
           results.freeze
@@ -36,16 +36,31 @@ module Guard
         def look_for_words_in(strings_list, text)
           count = 0
           strings_list = Array(strings_list)
-          strings_list.each do |s|
-            text =~ %r{
-              (\d+)   # count of what we are looking for
-              [ ]     # then a space
-              #{s}s?  # then the string
-              .*      # then whatever
-              \Z      # start looking at the end of the text
-            }x
-            count += $1.to_i unless $1.nil?
+          
+          if text =~ %r{FAILURES} || text =~ %r{OK, but incomplete or skipped tests!}
+            strings_list.each do |s|
+              text =~ %r{
+                #{s}s?  # then the string
+                [ ]     # then a space
+                (\d+)   # count of what we are looking for
+                .*      # then whatever
+                \Z      # start looking at the end of the text
+              }x
+              count += $1.to_i unless $1.nil?
+            end
+          else  
+            strings_list.each do |s|
+              text =~ %r{
+                (\d+)   # count of what we are looking for
+                [ ]     # then a space
+                #{s}s?  # then the string
+                .*      # then whatever
+                \Z      # start looking at the end of the text
+              }x
+              count += $1.to_i unless $1.nil?
+            end
           end
+          
           count
         end
 
@@ -55,7 +70,7 @@ module Guard
         # @return [Integer] the duration
         #
         def look_for_duration_in(text)
-          text =~ %r{Finished in (\d)+ seconds?.*\Z}m
+          text =~ %r{Time: (\d)+ seconds?.*\Z}m
           $1.nil? ? 0 : $1.to_i
         end
       end

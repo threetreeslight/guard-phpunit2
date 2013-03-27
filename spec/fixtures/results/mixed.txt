@@ -1,26 +1,31 @@
 ......SSFFEIF
 
-Errors:
+Time: 2 seconds, Memory: 5.75Mb
 
-  1) NumberTest::testMathStillWorks
-     NumberException: Division by zero!
-     # /home/maher/Projects/php/PHPUnit-Progress/Tests/_files/Number.php:61
-     # /home/maher/Projects/php/PHPUnit-Progress/Tests/_files/NumberTest.php:81
-
-Failures:
-
-  1) NumberTest::testThatMyMathTeacherSucked
-     Failed asserting that 10 is identical to 1.
-     # /home/maher/Projects/php/PHPUnit-Progress/Tests/_files/NumberTest.php:62
+There was 1 error:
 
 
-  2) NumberTest::testThatMyMathTeacherSuckedEvenMore
-     Failed asserting that 'I don't know!' is identical to -1.
-     # /home/maher/Projects/php/PHPUnit-Progress/Tests/_files/NumberTest.php:72
+1) NumberTest::testMathStillWorks
+NumberException: Division by zero!
+     
+/home/maher/Projects/php/PHPUnit-Progress/Tests/_files/Number.php:61
+/home/maher/Projects/php/PHPUnit-Progress/Tests/_files/NumberTest.php:81
+
+--
 
 
-  3) Warning
-     No tests found in class "emptyTest".
+There was 1 failure:
 
-Finished in 2 seconds
-13 tests, 4 assertions, 3 failures, 1 errors, 1 incomplete, 2 skipped
+1) NumberTest::testThatMyMathTeacherSucked
+Failed asserting that 10 is identical to 1.
+
+/home/maher/Projects/php/PHPUnit-Progress/Tests/_files/NumberTest.php:62
+
+
+2) NumberTest::testThatMyMathTeacherSuckedEvenMore
+Failed asserting that 'I don't know!' is identical to -1.
+   
+/home/maher/Projects/php/PHPUnit-Progress/Tests/_files/NumberTest.php:72
+
+FAILURES!
+Tests: 13, Assertions: 4, Failures: 3, Errors: 1, Incomplete: 1, Skipped: 2.

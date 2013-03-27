@@ -1,4 +1,6 @@
 ..
 
-Finished in 0 seconds
-2 tests, 2 assertions
+Time: 0 seconds, Memory: 5.75Mb
+
+OK (2 tests, 2 assertions)
+
