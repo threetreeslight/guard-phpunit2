@@ -171,8 +171,6 @@ module Guard
         # @see #run_tests
         #
         def phpunit_command(path, options)
-          formatter_path = File.join( File.dirname(__FILE__), 'formatters', 'PHPUnit-Progress')
-
           cmd_parts = []
           cmd_parts << "phpunit"
           cmd_parts << options[:cli] if options[:cli]
