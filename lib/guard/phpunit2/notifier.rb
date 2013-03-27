@@ -53,10 +53,9 @@ module Guard
         # @return [Symbol] the image symbol
         #
         def image(results)
-          case
-          when results[:failures] + results[:errors] > 0
+          if results[:failures] + results[:errors] > 0
             :failed
-          when results[:pending] > 0
+          elsif results[:pending] > 0
             :pending
           else
             :success

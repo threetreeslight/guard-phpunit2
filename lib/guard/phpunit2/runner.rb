@@ -12,11 +12,11 @@ module Guard
 
         # The exittcode phpunit returns when the tests contain failures
         #
-        PHPUNIT_FAILURES_EXITCODE = 1
+        PHPUNIT_FAILURES_EXITCODE = 3
 
         # The exittcode phpunit returns when the tests contain errors
         #
-        PHPUNIT_ERRORS_EXITCODE   = 2
+        PHPUNIT_ERRORS_EXITCODE   = 4
 
         # Runs the PHPUnit tests and displays notifications
         # about the results.
@@ -72,7 +72,7 @@ module Guard
           end
 
           # print the output to the terminal
-          UI.info output
+          puts output
 
           # return false in case the system call fails with no status!
           return false if $?.nil?
@@ -102,7 +102,6 @@ module Guard
         # @param (see #run)
         #
         def notify_results(output, options)
-          return if options[:notification] == false
           results = Formatter.parse_output(output)
           Notifier.notify_results(results)
         end
@@ -112,7 +111,6 @@ module Guard
         # @param (see #run)
         #
         def notify_failure(options)
-          return if options[:notification] == false
           Notifier.notify('Failed! Check the console', :title => 'PHPUnit results', :image => :failed)
         end
 

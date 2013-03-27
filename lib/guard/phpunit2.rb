@@ -18,7 +18,8 @@ module Guard
       :all_after_pass => true,
       :keep_failed    => true,
       :cli            => nil,
-      :tests_path     => Dir.pwd
+      :tests_path     => Dir.pwd,
+      :notification   => true
     }
 
     # Initialize Guard::PHPUnit.
