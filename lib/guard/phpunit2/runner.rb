@@ -2,7 +2,7 @@ require 'tmpdir'
 require 'fileutils'
 
 module Guard
-  class PHPUnit
+  class PHPUnit2
 
     # The Guard::PHPUnit runner handles running the tests, displaying
     # their output and notifying the user about the results.
@@ -175,8 +175,6 @@ module Guard
 
           cmd_parts = []
           cmd_parts << "phpunit"
-          cmd_parts << "--include-path #{formatter_path}"
-          cmd_parts << "--printer PHPUnit_Extensions_Progress_ResultPrinter"
           cmd_parts << options[:cli] if options[:cli]
           cmd_parts << path
 

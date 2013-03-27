@@ -1,5 +1,5 @@
 module Guard
-  class PHPUnit
+  class PHPUnit2
 
     # The Guard::PHPUnit inspector verfies that the changed paths
     # are valid for Guard::PHPUnit.

@@ -6,7 +6,7 @@ module Guard
   # The PHPUnit guard gets notified about system
   # events.
   #
-  class PHPUnit < Guard
+  class PHPUnit2 < Guard
 
     autoload :Inspector, 'guard/phpunit/inspector'
     autoload :Formatter, 'guard/phpunit/formatter'

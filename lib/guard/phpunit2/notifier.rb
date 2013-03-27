@@ -1,5 +1,5 @@
 module Guard
-  class PHPUnit
+  class PHPUnit2
 
     # The Guard::PHPUnit notifier displays a notification pop-up
     # with the tests results.

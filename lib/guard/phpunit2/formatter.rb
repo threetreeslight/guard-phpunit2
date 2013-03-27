@@ -1,5 +1,5 @@
 module Guard
-  class PHPUnit
+  class PHPUnit2
 
     # The Guard::PHPUnit formatter parses the output
     # of phpunit which gets printed by the progress
