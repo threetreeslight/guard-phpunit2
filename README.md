@@ -1,7 +1,7 @@
 Guard::PHPUnit [![Build Status](https://secure.travis-ci.org/Maher4Ever/guard-phpunit.png)](http://travis-ci.org/Maher4Ever/guard-phpunit) [![Dependency Status](https://gemnasium.com/Maher4Ever/guard-phpunit.png?branch=master)](https://gemnasium.com/Maher4Ever/guard-phpunit)
 ==============
 
-Guard-phpunit allows you to automatically run [PHPUnit][6] tests when sources
+Guard-phpunit2 allows you to automatically run [PHPUnit][6] tests when sources
 are modified. It helps with integrating test-driven development (TDD) into
 your development process: Just launch guard-phpunit before you start working
 and it will notify you about the status of your tests!
@@ -18,10 +18,10 @@ you proceed with the installation.
 The latest versions of [Ruby][1] come with a packages-manager called `gem`. `gem` can be used to
 install various packages, including guard-phpunit.
 
-To install guard-phpunit, run the following command in the terminal:
+To install guard-phpunit2, run the following command in the terminal:
 
 ```shell
-$ gem install guard-phpunit
+$ gem install guard-phpunit2
 ```
 
 Usage
@@ -48,7 +48,7 @@ An example of the Guardfile for the same project would look
 something like:
 
 ```ruby
-guard 'phpunit', :tests_path => 'Tests', :cli => '--colors' do
+guard 'phpunit2', :tests_path => 'Tests', :cli => '--colors' do
   # Watch tests files
   watch(%r{^.+Test\.php$})
 
@@ -87,8 +87,8 @@ The following options can be passed to Guard::PHPUnit:
 Development
 -----------
 
-* Source hosted at [GitHub](https://github.com/Maher4Ever/guard-phpunit)
-* Report issues/Questions/Feature requests on [GitHub Issues](https://github.com/Maher4Ever/guard-phpunit/issues)
+* Source hosted at [GitHub](https://github.com/ramon/guard-phpunit2)
+* Report issues/Questions/Feature requests on [GitHub Issues](https://github.com/ramon/guard-phpunit2/issues)
 
 Pull requests are very welcome! Make sure your patches are well tested. Please create a topic branch for every separate change
 you make.
@@ -97,6 +97,7 @@ Author
 ------
 
 [Maher Sallam](https://github.com/Maher4Ever)
+[Ramon Soares](https://github.com/ramon)
 
 [1]:http://ruby-lang.org
 [3]:https://github.com/guard/guard#readme
