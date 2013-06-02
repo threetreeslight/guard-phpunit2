@@ -246,14 +246,19 @@ class PHPUnit_Extensions_Progress_ResultPrinter extends PHPUnit_TextUI_ResultPri
       $this->numAssertions == 1 ? '' : 's' 
     );
 
+    // backwards/forwards compatibility hack for naming fix from phpunit 3.7.11
+    // @see https://github.com/sebastianbergmann/phpunit/issues/762
+    $allCompletelyImplemented = method_exists($result, 'allCompletelyImplemented')?
+	  'allCompletelyImplemented':'allCompletlyImplemented';
+
     if ( $result->wasSuccessful() &&
-      $result->allCompletelyImplemented() &&
+	  $result->$allCompletelyImplemented() &&
       $result->noneSkipped() )
     {
       $this->write($this->green($footer));
     }
 
-    else if ( ( !$result->allCompletlyImplemented() || !$result->noneSkipped() ) 
+    else if ( ( !$result->$allCompletelyImplemented() || !$result->noneSkipped() ) 
       &&
       $result->wasSuccessful() ) 
     {
