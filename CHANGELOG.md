@@ -1,3 +1,7 @@
+## 0.1.5 - June 02, 2013
+- Fixed issues with providing the command
+- Made it include an explicit output formatter 
+
 ## 0.1.4 - August 09, 2012
 
 - [#2][]: Add support for Windows.

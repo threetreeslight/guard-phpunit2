@@ -1,29 +1,48 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require 'guard/phpunit/version'
 
 Gem::Specification.new do |s|
-  s.name        = "guard-phpunit"
-  s.version     = Guard::PHPUnitVersion::VERSION
-  s.authors     = ["Maher Sallam"]
-  s.email       = ["maher@sallam.me"]
-  s.homepage    = ""
-  s.summary     = %q{Guard gem for PHPUnit}
-  s.description = %q{Guard::PHPUnit automatically run your unit-tests written with the PHPUnit testing framework.}
+  s.name = "guard-phpunit"
+  s.version = "0.1.5"
 
-  s.required_rubygems_version = '>= 1.3.6'
-  s.rubyforge_project = 'guard-phpunit'
-
-  s.add_runtime_dependency 'guard', '~> 1.1'
-
-  s.add_development_dependency 'bundler'
-  s.add_development_dependency 'rspec'
-  s.add_development_dependency 'guard-rspec'
-  s.add_development_dependency 'yard'
-  s.add_development_dependency 'redcarpet'
-  s.add_development_dependency 'pimpmychangelog'
-
-  s.files         = `git ls-files -- lib/*`.split("\n") + Dir.glob('{lib}/**/PHPUnit/**/*') + %w[LICENSE README.md CHANGELOG.md]
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.required_rubygems_version = Gem::Requirement.new(">= 1.3.6") if s.respond_to? :required_rubygems_version=
+  s.authors = ["Maher Sallam"]
+  s.date = "2013-06-02"
+  s.description = "Guard::PHPUnit automatically run your unit-tests written with the PHPUnit testing framework."
+  s.email = ["maher@sallam.me"]
+  s.files = ["lib/guard/phpunit.rb", "lib/guard/phpunit/formatter.rb", "lib/guard/phpunit/formatters/PHPUnit-Progress", "lib/guard/phpunit/inspector.rb", "lib/guard/phpunit/notifier.rb", "lib/guard/phpunit/runner.rb", "lib/guard/phpunit/templates/Guardfile", "lib/guard/phpunit/version.rb", "LICENSE", "README.md", "CHANGELOG.md"]
+  s.homepage = ""
   s.require_paths = ["lib"]
+  s.rubyforge_project = "guard-phpunit"
+  s.rubygems_version = "1.8.25"
+  s.summary = "Guard gem for PHPUnit"
+
+  if s.respond_to? :specification_version then
+    s.specification_version = 3
+
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<guard>, ["~> 1.1"])
+      s.add_development_dependency(%q<bundler>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, [">= 0"])
+      s.add_development_dependency(%q<guard-rspec>, [">= 0"])
+      s.add_development_dependency(%q<yard>, [">= 0"])
+      s.add_development_dependency(%q<redcarpet>, [">= 0"])
+      s.add_development_dependency(%q<pimpmychangelog>, [">= 0"])
+    else
+      s.add_dependency(%q<guard>, ["~> 1.1"])
+      s.add_dependency(%q<bundler>, [">= 0"])
+      s.add_dependency(%q<rspec>, [">= 0"])
+      s.add_dependency(%q<guard-rspec>, [">= 0"])
+      s.add_dependency(%q<yard>, [">= 0"])
+      s.add_dependency(%q<redcarpet>, [">= 0"])
+      s.add_dependency(%q<pimpmychangelog>, [">= 0"])
+    end
+  else
+    s.add_dependency(%q<guard>, ["~> 1.1"])
+    s.add_dependency(%q<bundler>, [">= 0"])
+    s.add_dependency(%q<rspec>, [">= 0"])
+    s.add_dependency(%q<guard-rspec>, [">= 0"])
+    s.add_dependency(%q<yard>, [">= 0"])
+    s.add_dependency(%q<redcarpet>, [">= 0"])
+    s.add_dependency(%q<pimpmychangelog>, [">= 0"])
+  end
 end
