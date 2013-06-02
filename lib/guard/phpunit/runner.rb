@@ -172,7 +172,6 @@ module Guard
         #
         def phpunit_command(path, options)
           formatter_path = File.join( File.dirname(__FILE__), 'formatters', 'PHPUnit-Progress')
-	  puts "Path is #{formatter_path}"
           
           command = "phpunit"
           command = options[:command] if options[:command]
