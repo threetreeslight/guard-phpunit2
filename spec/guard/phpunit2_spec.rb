@@ -23,6 +23,10 @@ describe Guard::PHPUnit2 do
       it 'sets a default :tests_path option' do
         subject.options[:tests_path].should == @project_path.to_s
       end
+
+      it 'sets a default :notification option' do
+        subject.options[:notification].should be_true
+      end
     end
 
     context 'when other options are provided' do

@@ -32,7 +32,7 @@ describe Guard::PHPUnit2::Runner do
 
       it 'displays an error when phpunit is not installed' do
         subject.stub(:phpunit_exists?).and_return(false)
-        ui.should_receive(:error).with('phpunit is not installed on your machine.', anything)
+        ui.should_receive(:error).with('the provided php unit command is invalid or phpunit is not installed on your machine.', anything)
 
         subject.run( ['tests'] )
       end
@@ -135,7 +135,7 @@ describe Guard::PHPUnit2::Runner do
           it 'runs with CLI options passed to PHPUnit' do
             cli_options = '--colors --verbose'
             subject.should_receive(:execute_command).with(
-              %r{^phpunit #{cli_options} .+$}
+              %r{^phpunit --include-path .* --printer .* #{cli_options} .+$}
             ).and_return(true)
             subject.run( ['tests'], :cli => cli_options )
           end
