@@ -101,7 +101,11 @@ Author
 ------
 
 [Maher Sallam](https://github.com/Maher4Ever)
+
 [Ramon Soares](https://github.com/ramon)
+
+[Marek Kalnik](https://github.com/marekkalnik)
+
 
 [1]:http://ruby-lang.org
 [3]:https://github.com/guard/guard#readme
