@@ -48,7 +48,7 @@ module Guard
     # @raise [:task_has_failed] when stop has failed
     #
     def start
-      run_all if options[:all_on_start]
+      return false
     end
 
     # Gets called when all tests should be run.
@@ -56,12 +56,7 @@ module Guard
     # @raise (see #start)
     #
     def run_all
-      success = Runner.run(options[:tests_path], options.merge(
-        :message => 'Running all tests'
-      ))
-
-      @previous_failed = !success
-      throw :task_has_failed unless success
+      return false
     end
 
     # Gets called when the watched tests have changes.
@@ -70,7 +65,7 @@ module Guard
     # @raise (see #start)
     #
     def run_on_changes(paths)
-      paths = Inspector.clean(paths + @failed_paths)
+      # paths = Inspector.clean(paths + @failed_paths)
       success = Runner.run(paths, options)
 
       update_failed_paths(success, paths)
@@ -101,13 +96,7 @@ module Guard
     # @param (see .update_failed_paths)
     #
     def run_all_after_pass(tests_passed)
-      return unless @options[:all_after_pass]
-
-      if tests_passed
-        run_all if @previous_failed
-      else
-        @previous_failed = true
-      end
+      return false
     end
   end
 end
